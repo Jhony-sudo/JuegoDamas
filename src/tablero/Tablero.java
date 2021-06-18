@@ -4,6 +4,7 @@ public class Tablero {
     String[][] Tablero = new String[8][8];
     String black = "\033[30m";
     String reset = "\u001B[0m";
+    String amar = "\u001B[33m";
 
     public Tablero() {
 
@@ -40,9 +41,9 @@ public class Tablero {
 
         for (int i = 5; i < Tablero.length; i++) {
             if (i % 2 == 0) {
-                LlenarFilasPar(i, black);
+                LlenarFilasPar(i, amar);
             } else {
-                LlenarFilaImpar(i, black);
+                LlenarFilaImpar(i, amar);
             }
 
         }
