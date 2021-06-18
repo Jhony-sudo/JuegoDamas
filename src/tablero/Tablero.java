@@ -5,6 +5,7 @@ public class Tablero {
     String black = "\033[30m";
     String reset = "\u001B[0m";
     String amar = "\u001B[33m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
     public Tablero() {
 
@@ -34,8 +35,11 @@ public class Tablero {
         }
 
         for (int i = 3; i <= 4; i++) {
-            for (int j = 0; j < Tablero.length; j++) {
-                Tablero[i][j] = "   ";
+            if (i % 2 == 0) {
+                LlenarFilasParCentro(i);
+
+            } else {
+                LlenarFilaImparCentro(i);
             }
         }
 
@@ -53,7 +57,7 @@ public class Tablero {
     public void LlenarFilasPar(int i, String Color) {
         for (int j = 0; j < Tablero.length; j++) {
             if (j % 2 == 0) {
-                Tablero[i][j] = "   ";
+                Tablero[i][j] = ANSI_WHITE_BACKGROUND + "   " + reset;
             } else {
                 Tablero[i][j] = Color + " O " + reset;
             }
@@ -66,7 +70,29 @@ public class Tablero {
             if (j % 2 == 0) {
                 Tablero[i][j] = Color + " O " + reset;
             } else {
-                Tablero[i][j] = "   ";
+                Tablero[i][j] = ANSI_WHITE_BACKGROUND + "   " + reset;
+            }
+        }
+
+    }
+
+    public void LlenarFilasParCentro(int i) {
+        for (int j = 0; j < Tablero.length; j++) {
+            if (j % 2 == 0) {
+                Tablero[i][j] = ANSI_WHITE_BACKGROUND + "   " + reset;
+            } else {
+                Tablero[i][j] = "   " + reset;
+            }
+        }
+
+    }
+
+    public void LlenarFilaImparCentro(int i) {
+        for (int j = 0; j < Tablero.length; j++) {
+            if (j % 2 == 0) {
+                Tablero[i][j] = "   " + reset;
+            } else {
+                Tablero[i][j] = ANSI_WHITE_BACKGROUND + "   " + reset;
             }
         }
 
