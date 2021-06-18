@@ -6,8 +6,6 @@ public class Tablero {
     String reset = "\u001B[0m";
 
     public Tablero() {
-        LlenarTabla();
-        DibujarTabla();
 
     }
 
