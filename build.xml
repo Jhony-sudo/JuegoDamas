@@ -1,0 +1,27 @@
+<project name = "JUEGODAMAS">
+    <target name = "init">
+        <mkdir dir = "build" />
+        <mkdir dir = "jar" />
+    </target>
+
+    <target name = "Compilar" depends= "init">
+        <javac srcdir = "src" destdir = "build" />
+    </target>
+
+    <target name = "build" depends = "Compilar">
+        <jar destfile = "jar/JUEGODAMAS.jar" basedir = "build" />
+    </target>
+    
+    <target name="run" depends="Compilar">
+            <java classname = "src.Correr.Principal">
+            <classpath>
+            <pathelement path = "build"/>
+            </classpath>
+            </java>
+    </target>
+
+    <target name = "Limpiar">
+        <delete dir = "build" />
+        <delete dir = "jar" />
+    </target>
+</project>
